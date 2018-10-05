@@ -1,3 +1,8 @@
+/*
+ *  * Copyright (c) Austin Goebel, CMPUT301, University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students Behavior at University of Alberta
+ *
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -27,6 +32,7 @@ import com.google.gson.reflect.TypeToken;
 import org.apache.http.entity.BufferedHttpEntity;
 
 public class LonelyTwitterActivity extends Activity {
+
 
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
@@ -64,7 +70,7 @@ public class LonelyTwitterActivity extends Activity {
 		});
 
 
-		/// NEW STUFF BELOW
+		/** Clears history*/
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v){
@@ -76,9 +82,8 @@ public class LonelyTwitterActivity extends Activity {
 			}
 		});
 
-		/// NEW STUFF ABOVE
 	}
-
+	/** loads past tweets from file and sets adapter*/
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -88,6 +93,7 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/** loads past tweets from file*/
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -111,7 +117,7 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-	
+	/** saves tweets to file*/
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,0);
